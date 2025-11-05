@@ -145,8 +145,49 @@ function cercaLavori(titolo, zona) {
   }
 
   return risultati; 
+
+  
 }
-console.log(cercaLavori('marketing','us'))
+
 
 //parte 2
+ function ricercaOnClick(){
+  let titolo = document.getElementById("title").value;
 
+  //console.log(titolo);
+
+  let posto =  document.getElementById("location").value;
+
+  //console.log(posto);
+
+  let lista = document.querySelector("ul");
+  lista.innerHTML = "";
+
+
+  if (titolo === "" && posto === "") {
+  //console.log("Devi scrivere almeno un campo");
+  let li = document.createElement("li");
+    li.textContent = "scrivi almeno un campo";
+    lista.appendChild(li);
+    return;
+  }
+
+
+  let risultato = cercaLavori(titolo, posto);
+
+  
+  if (risultato.count === 0) {
+    let li = document.createElement("li");
+    li.textContent = "Nessun risultato trovato.";
+    lista.appendChild(li);
+    return;
+  }
+
+for (let i = 0; i < risultato.results.length; i++) {
+
+  let offerta = risultato.results[i];
+  let li = document.createElement("li");
+  li.textContent = offerta.title + offerta.location;
+  lista.appendChild(li);
+ }
+}
