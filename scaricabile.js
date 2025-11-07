@@ -153,19 +153,12 @@ function cercaLavori(titolo, zona) {
 //parte 2
  function ricercaOnClick(){
   let titolo = document.getElementById("title").value;
-
-  //console.log(titolo);
-
-  let posto =  document.getElementById("location").value;
-
-  //console.log(posto);
-
+  let zona =  document.getElementById("location").value;
   let lista = document.querySelector("ul");
   lista.innerHTML = "";
 
 
-  if (titolo === "" && posto === "") {
-  //console.log("Devi scrivere almeno un campo");
+  if (titolo === "" && zona === "") {
   let li = document.createElement("li");
     li.textContent = "scrivi almeno un campo";
     lista.appendChild(li);
@@ -173,7 +166,7 @@ function cercaLavori(titolo, zona) {
   }
 
 
-  let risultato = cercaLavori(titolo, posto);
+  let risultato = cercaLavori(titolo, zona);
 
   
   if (risultato.count === 0) {
