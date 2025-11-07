@@ -180,7 +180,7 @@ for (let i = 0; i < risultato.results.length; i++) {
 
   let offerta = risultato.results[i];
   let li = document.createElement("li");
-  li.textContent = offerta.title + offerta.location;
+  li.innerHTML = offerta.title + '&nbsp;&nbsp;&nbsp;' + offerta.location;
   lista.appendChild(li);
  }
 }
